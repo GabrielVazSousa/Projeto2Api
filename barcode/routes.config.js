@@ -7,8 +7,8 @@ const ADMIN = config.permissionLevels.ADMIN;
 const PAID = config.permissionLevels.PAID_USER;
 const FREE = config.permissionLevels.NORMAL_USER;
 
-// var multer  = require('multer')
-// var upload = multer({ dest: 'uploads/' })
+var multer  = require('multer')
+var upload = multer({ dest: 'uploadsBarcodes/' })
 
 exports.routesConfig = function (app) {
     app.post('/barcode', [
@@ -16,11 +16,11 @@ exports.routesConfig = function (app) {
         PermissionMiddleware.minimumPermissionLevelRequired(PAID),
         BarcodeController.ConvertStringToBarcode
     ]);
-    // app.get('/ocr', [
-    //     ValidationMiddleware.validJWTNeeded,
-    //     PermissionMiddleware.minimumPermissionLevelRequired(PAID),
-    //     BarcodeController.list
-    // ]);
+    app.get('/barcode', [
+        ValidationMiddleware.validJWTNeeded,
+        PermissionMiddleware.minimumPermissionLevelRequired(PAID),
+        BarcodeController.list
+    ]);
     // app.get('/ocr/:ocrId', [
     //     ValidationMiddleware.validJWTNeeded,
     //     PermissionMiddleware.minimumPermissionLevelRequired(PAID),

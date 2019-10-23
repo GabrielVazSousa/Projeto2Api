@@ -23,6 +23,7 @@ app.use(function (req, res, next) {
         return next();
     }
 });
+app.use('/barcodes', express.static('barcodes'));
 app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.json());
 AuthorizationRouter.routesConfig(app);

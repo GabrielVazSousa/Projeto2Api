@@ -14,7 +14,7 @@ exports.ConvertImageToText = (req, res) => {
 
     var apiInstance = new CloudmersiveOcrApiClient.ImageOcrApi();
 
-    var imageFile =  Buffer.from(fs.readFileSync("/Users/gabrielsousa/Source/Repos/rest-api-tutorial/"+req.file.path).buffer);
+    var imageFile =  Buffer.from(fs.readFileSync("/Users/gabrielsousa/Source/Repos/Projeto2/"+req.file.path).buffer);
    
 
     var opts = {

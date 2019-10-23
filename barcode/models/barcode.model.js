@@ -18,13 +18,13 @@ barcodeSchema.set('toJSON', {
 });
 
 barcodeSchema.findById = function (cb) {
-    return this.model('Ocrs').find({id: this.id}, cb);
+    return this.model('Barcodes').find({id: this.id}, cb);
 };
 
-const Ocr = mongoose.model('Barcodes', barcodeSchema);
+const Barcode = mongoose.model('Barcodes', barcodeSchema);
 
 exports.findById = (id) => {
-    return Ocr.findById(id)
+    return Barcode.findById(id)
         .then((result) => {
             result = result.toJSON();
             delete result._id;
@@ -34,8 +34,8 @@ exports.findById = (id) => {
 };
 
 exports.createBarcode = (barcodeData) => {
-    const ocr = new Ocr(barcodeData);
-    return ocr.save().then(() => {
+    const barcode = new Barcode(barcodeData);
+    return barcode.save().then(() => {
         result = barcodeData;
         return result;
     });
@@ -43,20 +43,20 @@ exports.createBarcode = (barcodeData) => {
 
 exports.list = (userId) => {
     return new Promise((resolve, reject) => {
-        Ocr.find({user: userId})
-            .exec(function (err, ocrs) {
+        Barcode.find({user: userId})
+            .exec(function (err, barcodes) {
                 if (err) {
                     reject(err);
                 } else {
                     // i=0;
-                    // var ocrs = JSON.stringify(ocrs);
+                    // var barcodes = JSON.stringify(barcodes);
                     let list = [];
-                    // ocrs.forEach(function(v){ v.id = undefined });
-                    ocrs.forEach(function(ocr){
+                    // barcodes.forEach(function(v){ v.id = undefined });
+                    barcodes.forEach(function(barcode){
                         objectToAdd = {
-                            image: ocr.image,
-                            id: ocr.id,
-                            text: ocr.text
+                            image: barcode.image,
+                            id: barcode.id,
+                            text: barcode.text
                         }
                         list.push(objectToAdd);
                     })
