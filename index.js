@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const AuthorizationRouter = require('./authorization/routes.config');
 const UsersRouter = require('./users/routes.config');
 const OcrRouter = require('./ocr/routes.config');
+const BarcodeRouter = require('./barcode/routes.config')
 
 
 
@@ -27,6 +28,7 @@ app.use(bodyParser.json());
 AuthorizationRouter.routesConfig(app);
 UsersRouter.routesConfig(app);
 OcrRouter.routesConfig(app);
+BarcodeRouter.routesConfig(app);
 
 
 app.listen(config.port, function () {
