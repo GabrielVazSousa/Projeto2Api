@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/makinhs/rest-api-tutorial#readme",
   "dependencies": {
-    "body-parser": "1.7.0",
+    "body-parser": "1.20.1",
     "cloudmersive-ocr-api-client": "^1.2.5",
     "cloudmersive-barcodeapi-client": "1.1.2",
-    "express": "^4.8.7",
+    "express": "^4.18.2",
     "jsonwebtoken": "^7.3.0",
     "moment": "^2.17.1",
     "moment-timezone": "^0.5.13",
