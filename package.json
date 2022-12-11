@@ -21,7 +21,7 @@
     "body-parser": "1.7.0",
     "cloudmersive-ocr-api-client": "^1.2.5",
     "cloudmersive-barcodeapi-client": "1.1.2",
-    "express": "^4.8.7",
+    "express": "^4.17.3",
     "jsonwebtoken": "^7.3.0",
     "moment": "^2.17.1",
     "moment-timezone": "^0.5.13",
